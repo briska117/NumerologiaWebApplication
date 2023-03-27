@@ -1,0 +1,12 @@
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre Completo:</label>
+    <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="emailHelp" placeholder="Juan Perez Lopez">
+  </div>
+  <div class="form-group  col-2">
+    <label for="exampleInputPassword1">Fecha de Nacimiento:</label>
+    <input type="date" class="form-control" id="birthdate" formControlName="birthdate" placeholder="Fecha de Nacimiento">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Validar Nombre</button>
+</form>

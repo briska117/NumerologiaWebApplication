@@ -41,6 +41,68 @@ namespace NueveYMedia.NumerologiaWebApplication.Services
             }
         }
 
+        private List<Reduction> GetReductions(int originalValue)
+        {
+            List<Reduction> reductions = new List<Reduction>();
+            if (originalValue > 9)
+            {
+                reductions = ReductionProccess(originalValue);
+            }
+            else
+            {
+                reductions.Add(SetReduction(originalValue));  
+            }
+            return reductions;
+        }
+
+        private List<Reduction> ReductionProccess(int value)
+        {
+            List<Reduction> reductions = new List<Reduction>();
+            bool ready = false;
+            do {
+                if (IsMasterNumber(value))
+                {
+                    reductions.Add(SetReduction(value));
+                    ready = true;
+                }
+                else
+                {
+                    string numberToString = value.ToString();
+                    int result = 0;
+                    foreach(char c in numberToString)
+                    {
+                        result = result + int.Parse(c.ToString());   
+                    }   
+                    var reduction = SetReduction(value);
+                    reduction.ReductionNum = result;
+                    reductions.Add(reduction);
+                    value = Convert.ToInt32(reduction.ReductionNum);
+                    if (value < 10)
+                    {
+                        ready = true;   
+                    }
+                }
+            } while (!ready);
+            return reductions;
+        }
+
+        private bool IsMasterNumber(int value)
+        {
+            int[] masterNumbers = { 11, 22, 33, 44, 55 };
+            return masterNumbers.Contains(value);
+        }
+
+        private Reduction SetReduction(int value)
+        {
+
+            Reduction reduction = new Reduction
+            {
+                InitialNum = value,
+                ReductionNum = null
+            };
+            return reduction;
+        }
+
         private List<NameSection> ProcessSectionName(List<NameSection> sections)
         {
             try
@@ -48,6 +110,9 @@ namespace NueveYMedia.NumerologiaWebApplication.Services
                 foreach(NameSection section in sections)
                 {
                     section.Letters = GetLetters(section.NameString);
+                    section.VocalReductions = GetReductions(section.TotalVocals);
+                    section.ConsonantReductions = GetReductions(section.TotalConsonants);
+
                 }    
                 
                 return sections;
@@ -70,11 +135,28 @@ namespace NueveYMedia.NumerologiaWebApplication.Services
                     Letter letter = new Letter();
                     letter.Character = character;
                     letter.Value = GetValue(character);
+                    letter.IsVocal = IsVocal(character);
                     letterList.Add(letter);
+
                 }
 
                 return letterList;
 
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception();
+            }
+        }
+
+        private bool IsVocal(char cacharacter)
+        {
+            try
+            {
+                char[] vocals = {'A','E','I','O','U'};
+                var isVocal =vocals.Contains(cacharacter); 
+                return isVocal;
             }
             catch (Exception ex)
             {
@@ -103,6 +185,15 @@ namespace NueveYMedia.NumerologiaWebApplication.Services
 
                 throw new Exception();
             }
+        }
+
+        public NumerologicalAnalysis GetNumerologicalAnalysis(List<NameSection> nameSections)
+        {
+            NumerologicalAnalysis numerologicalAnalysis = new NumerologicalAnalysis();
+            numerologicalAnalysis.Names = nameSections;
+            numerologicalAnalysis.EssenceReductions = GetReductions(numerologicalAnalysis.EssenceInitial);
+            numerologicalAnalysis.ImageReductions = GetReductions(numerologicalAnalysis.ImageInitial);
+            return numerologicalAnalysis;   
         }
     }
 }

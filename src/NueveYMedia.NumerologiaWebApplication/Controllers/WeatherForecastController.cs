@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NueveYMedia.NumerologiaWebApplication.Modules;
 using NueveYMedia.NumerologiaWebApplication.Services;
 
 namespace NueveYMedia.NumerologiaWebApplication.Controllers
@@ -36,8 +37,10 @@ namespace NueveYMedia.NumerologiaWebApplication.Controllers
         [HttpGet("name")]
         public ActionResult GetName()
         {
-            var X = this.numerologyService.GetNameSections("EDGAR BRIAN MAGANA ACOSTA");
-            return Ok(X);
+            string fullName = "Elon Musk Reeve";
+            List<NameSection> x = this.numerologyService.GetNameSections(fullName.ToUpper());
+            var result = this.numerologyService.GetNumerologicalAnalysis(x);
+            return Ok(result);
         }
     }
 }

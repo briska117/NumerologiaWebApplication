@@ -4,6 +4,6 @@
     {
         public char Character { get; set; }
         public int Value { get; set; }  
-        public int isVocal { get; set; }    
+        public bool IsVocal { get; set; }    
     }
 }

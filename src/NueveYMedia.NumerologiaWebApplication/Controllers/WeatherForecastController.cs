@@ -34,11 +34,9 @@ namespace NueveYMedia.NumerologiaWebApplication.Controllers
             })
             .ToArray();
         }
-        [HttpGet("name")]
-        public ActionResult GetName()
-        {
-            string fullName = "Elon Musk Reeve";
-            List<NameSection> x = this.numerologyService.GetNameSections(fullName.ToUpper());
+        [HttpPost]
+        public ActionResult GetName([FromBody] NameRequest nameRequest) { 
+            List<NameSection> x = this.numerologyService.GetNameSections(nameRequest.Name.ToUpper());
             var result = this.numerologyService.GetNumerologicalAnalysis(x);
             return Ok(result);
         }

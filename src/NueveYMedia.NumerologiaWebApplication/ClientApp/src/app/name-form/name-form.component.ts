@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NameFormComponent implements OnInit {
   public myForm!: FormGroup;
+  @Output() newItemEvent = new EventEmitter<any>();
 
   constructor() { }
 
@@ -21,6 +22,7 @@ export class NameFormComponent implements OnInit {
     console.log('Valid?', form.valid); // true or false
     console.log('Name', form.value.name);
     console.log('Email', form.value.birthdate);
+    this.newItemEvent.next(this.myForm.value);
   }
 
 }

@@ -1,12 +1,251 @@
 
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Nombre Completo:</label>
+<form [formGroup]="myForm" class="form-group row" (ngSubmit)="onSubmit(myForm)" style="padding-left:5%;padding-right:5%">
+  <div class="col-sm-10">
+    <label for="exampleInputEmail1" class="form-label">Nombre Completo:</label>
     <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="emailHelp" placeholder="Juan Perez Lopez">
   </div>
-  <div class="form-group  col-2">
-    <label for="exampleInputPassword1">Fecha de Nacimiento:</label>
-    <input type="date" class="form-control" id="birthdate" formControlName="birthdate" placeholder="Fecha de Nacimiento">
-  </div>
-  <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Validar Nombre</button>
+  <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+      <label for="exampleInputPassword1"> <br /></label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Usar "Y" como consonante
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <label for="exampleInputPassword1">Fecha de Nacimiento:</label>
+      <input type="date" class="form-control" id="birthdate" formControlName="birthdate" placeholder="Fecha de Nacimiento">
+    </div>
+    <div class="col-sm-4">
+      <label for="exampleInputPassword1">Genero:</label>
+      <select class="form-control">
+        <option>Hombre</option>
+        <option>Mujer</option>
+      </select>
+    </div>
+    <div class="col-sm-4" style="padding-top:3%">
+      <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Validar Nombre</button>
+    </div>
 </form>
+<div class="text-center" style="font-family: 'Fasthand',cursive; display: inline-flex !important; padding-left:2%;padding-right:2%;">
+  <table>
+    <tr>
+      <td></td>
+      <td>9</td>
+      <td>5</td>
+      <td></td>
+      <td>6</td>
+    </tr>
+    <tr>
+    <tr>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>I</td>
+      <td>E</td>
+      <td>G</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>7</td>
+      <td></td>
+    </tr>
+    <!--<tr>
+      <td>R</td>
+      <td>E</td>
+      <td>G</td>
+      <td>A</td>
+      <td>T</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>U</td>
+      <td>E</td>
+      <td>V</td>
+      <td>A</td>
+      <td>R</td>
+      <td>A</td>
+    </tr>-->
+  </table>
+  <table class="text-center">
+    <tr>
+      <td></td>
+      <td>5</td>
+      <td></td>
+      <td>1</td>
+      <td></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>E</td>
+      <td>G</td>
+      <td>A</td>
+      <td>T</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td></td>
+      <td>7</td>
+      <td></td>
+      <td>2</td>
+      <td></td>
+    </tr>
+  </table>
+  <table class="text-center">
+    <tr>
+      <td></td>
+      <td>3</td>
+      <td>5</td>
+      <td></td>
+      <td>1</td>
+      <td></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          north
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>U</td>
+      <td>E</td>
+      <td>V</td>
+      <td>A</td>
+      <td>R</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td>
+      </td>
+      <td>
+        <span class="material-symbols-outlined">
+          south
+        </span>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td></td>
+      <td></td>
+      <td>4</td>
+      <td></td>
+      <td>9</td>
+      <td></td>
+    </tr>
+  </table>
+
+</div>

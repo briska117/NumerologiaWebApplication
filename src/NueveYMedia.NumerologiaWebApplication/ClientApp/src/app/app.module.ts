@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NameFormComponent } from './name-form/name-form.component';
+import { NameDiagramComponent } from './name-diagram/name-diagram.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NameFormComponent } from './name-form/name-form.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    NameFormComponent
+    NameFormComponent,
+    NameDiagramComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

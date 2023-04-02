@@ -7,3 +7,5 @@
 </ul>
 
 <app-name-form (newItemEvent)="addItem($event)"></app-name-form>
+
+<app-name-diagram [numericalAnalisys]="numericalAnalisys" *ngIf="numericalAnalisys!=null"></app-name-diagram>

@@ -7,7 +7,17 @@ export interface Name {
     vocalReductions: VocalReduction[]
     consonantReductions: ConsonantReduction[]
     warning: boolean
-  }
+}
+
+export interface NumericalAnalisys {
+  names: Name[]
+  essenceInitial: number
+  imageInitial: number
+  essenceReductions: EssenceReduction[]
+  imageReductions: ImageReduction[]
+  essenceReductionString: string
+  imageReductionString: string
+}
   
   export interface Letter {
     character: string

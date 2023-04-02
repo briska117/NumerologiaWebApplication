@@ -1,0 +1,45 @@
+
+
+<div  class="text-center" style="font-family: 'Fasthand',cursive; display: inline-flex !important; padding-left:2%;padding-right:2%;">
+  <table *ngFor="let item of numericalAnalisys.names">
+    <tr *ngFor="let reduction of item.vocalReductions">
+      <td [attr.colspan]="item.letters.length">
+        {{reduction.reductionFormat}}
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let letter of item.letters">
+        <span *ngIf="letter.isVocal">{{letter.value}}</span>
+      </td>
+
+    </tr>
+    <tr>
+    <tr>
+      <td *ngFor="let letter of item.letters">
+        <span class="material-symbols-outlined" *ngIf="letter.isVocal">
+          north
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let letter of item.letters">{{letter.character}}</td>
+    </tr>
+    <tr>
+      <td *ngFor="let letter of item.letters">
+        <span class="material-symbols-outlined" *ngIf="!letter.isVocal">
+          south
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let letter of item.letters">
+        <span *ngIf="!letter.isVocal">{{letter.value}}</span>
+      </td>
+    </tr>
+    <tr *ngFor="let reduction of item.consonantReductions">
+      <td [attr.colspan]="item.letters.length">
+        {{reduction.reductionFormat}}
+      </td>
+    </tr>
+  </table>
+  </div>
